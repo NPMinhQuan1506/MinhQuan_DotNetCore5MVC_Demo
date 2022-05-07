@@ -21,6 +21,7 @@ namespace MinhQuan_DotNetCoreMVC5_Demo
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                    //webBuilder.UseContentRoot("testWwwRoot");
                 });
     }
 }
