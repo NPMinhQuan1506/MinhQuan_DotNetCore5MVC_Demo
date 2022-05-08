@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MinhQuan_DotNetCoreMVC5_Demo.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +25,9 @@ namespace MinhQuan_DotNetCoreMVC5_Demo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var connectionString = Configuration.GetConnectionString("SQLObjectDatabase");
+            services.AddDbContext<Demo_DotNetCore50MVCContext>(options => options.UseSqlServer(connectionString));
+
             services.AddControllersWithViews();
         }
 
@@ -62,13 +67,13 @@ namespace MinhQuan_DotNetCoreMVC5_Demo
                     new { controller = "Custom", action = "Index" });
 
                 endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapControllerRoute(
                    name: "Home",
                    pattern: "{Home}",
                    new { controller = "Home", action = "Index" });
-
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
