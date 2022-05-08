@@ -83,17 +83,33 @@ namespace MinhQuan_DotNetCoreMVC5_Demo.Controllers
         }
         */
 
+        public IActionResult Index()
+        {
+            return View();
+        }
+
         public string StringOut(string id, Employee emp)
         {
             return $"This is id {id}. First Name {emp.firstname}. Last Name {emp.lastname} ";
         }
 
-        public ActionResult actionResult(string id, Employee emp)
+        //public ActionResult actionResult(string id, Employee emp)
+        //{
+        //    return Content($"This is action result {id}. First Name {emp.firstname}. Last Name {emp.lastname} ");
+        //}
+
+        //public JsonResult ActionJSON(string id, Employee emp)
+        //{
+        //    var obj = new { Id = id, emp = emp };
+        //    return Json(obj);
+        //}
+
+        public IActionResult actionResult(string id, Employee emp)
         {
             return Content($"This is action result {id}. First Name {emp.firstname}. Last Name {emp.lastname} ");
         }
 
-        public JsonResult ActionJSON(string id, Employee emp)
+        public IActionResult ActionJSON(string id, Employee emp)
         {
             var obj = new { Id = id, emp = emp };
             return Json(obj);
