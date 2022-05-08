@@ -1,4 +1,5 @@
-﻿{
+﻿//Config environment of project
+{
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
@@ -28,3 +29,4 @@
     }
   }
 }
+
