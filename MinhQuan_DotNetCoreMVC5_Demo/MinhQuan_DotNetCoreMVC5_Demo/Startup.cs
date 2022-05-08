@@ -48,6 +48,24 @@ namespace MinhQuan_DotNetCoreMVC5_Demo
 
             app.UseEndpoints(endpoints =>
             {
+                //https://localhost:44304/Custom
+                //https://localhost:44304/QuanCustom
+
+                endpoints.MapControllerRoute(
+                   name: "Secure",
+                   pattern: "Secure",
+                   new { controller = "Admin", action = "Index" });
+
+                endpoints.MapControllerRoute(
+                    name: "Custom",
+                    pattern: "QuanCustom",
+                    new { controller = "Custom", action = "Index" });
+
+                endpoints.MapControllerRoute(
+                   name: "Home",
+                   pattern: "{Home}",
+                   new { controller = "Home", action = "Index" });
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
