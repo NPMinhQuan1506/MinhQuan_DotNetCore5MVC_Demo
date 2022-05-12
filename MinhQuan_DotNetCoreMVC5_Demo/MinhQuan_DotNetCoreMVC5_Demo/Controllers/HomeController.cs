@@ -41,7 +41,9 @@ namespace MinhQuan_DotNetCoreMVC5_Demo.Controllers
             {
                 return View(formData);
             }
-            return Json(formData);
+            TempData["Message"] = "Thank you! We'll contact you shortly!";
+            return RedirectToAction("Contact");
+            //return Json(formData);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

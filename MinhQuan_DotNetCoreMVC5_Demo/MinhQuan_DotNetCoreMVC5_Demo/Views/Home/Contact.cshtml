@@ -3,12 +3,19 @@
 @{
     ViewData["Title"] = "Contact";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var msg = TempData["Message"] as String;
 }
 
 <h1>Contact</h1>
 
 <h4>Contact</h4>
 <hr />
+@if (!string.IsNullOrEmpty(msg))
+{
+    <div class="alert alert-success">
+            <p>@msg</p>
+    </div>
+}
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Contact">
@@ -48,4 +55,10 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
+
+<script type="text/javascript">
+    if($('.alert').length){
+        setTimeout(()=>{document.location.reload()}, 2000)
+    }
+</script>
 
