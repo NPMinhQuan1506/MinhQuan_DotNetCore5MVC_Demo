@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MinhQuan_DotNetCoreMVC5_Demo.Models;
+using MinhQuan_DotNetCoreMVC5_Demo.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -26,6 +27,17 @@ namespace MinhQuan_DotNetCoreMVC5_Demo.Controllers
         public IActionResult Privacy()
         {
             return View();
+        }
+
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Contact(DemoUser formData)
+        {
+            return Json(formData);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
