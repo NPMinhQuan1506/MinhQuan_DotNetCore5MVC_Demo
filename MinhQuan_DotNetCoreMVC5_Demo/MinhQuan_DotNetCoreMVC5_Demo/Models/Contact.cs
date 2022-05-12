@@ -28,6 +28,6 @@ namespace MinhQuan_DotNetCoreMVC5_Demo.Models
         //[Required(ErrorMessage = "Không được để trống")]
         [Required]
         [StringLength(250)]
-        public string Address { get; set; }
+        public string Note { get; set; }
     }
 }
