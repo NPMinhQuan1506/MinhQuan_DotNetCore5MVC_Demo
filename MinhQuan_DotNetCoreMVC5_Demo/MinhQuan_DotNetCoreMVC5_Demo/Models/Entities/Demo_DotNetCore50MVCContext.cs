@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using MinhQuan_DotNetCoreMVC5_Demo.Models;
 
 #nullable disable
 
@@ -53,5 +54,7 @@ namespace MinhQuan_DotNetCoreMVC5_Demo.Models.Entities
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
+        public DbSet<MinhQuan_DotNetCoreMVC5_Demo.Models.Contact> Contact { get; set; }
     }
 }
