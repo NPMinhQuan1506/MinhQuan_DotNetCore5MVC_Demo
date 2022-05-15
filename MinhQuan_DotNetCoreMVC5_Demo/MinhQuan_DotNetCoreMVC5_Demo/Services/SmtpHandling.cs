@@ -23,7 +23,7 @@ namespace MinhQuan_DotNetCoreMVC5_Demo.Services
             using (var client = new SmtpClient())
             {
                 client.Connect("smtp.gmail.com");
-                client.Authenticate("TestSMTPQuan@gmail.com", "123@@Abc");
+                client.Authenticate("YourEmail", "yourpassword");
 
                 var bodyBuilder = new BodyBuilder
                 {
